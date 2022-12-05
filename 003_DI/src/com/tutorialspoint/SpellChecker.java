@@ -8,7 +8,7 @@ package com.tutorialspoint;
 public class SpellChecker {
     // 无参构造器
     public SpellChecker(){
-        System.out.println("Inside SpellChecker constructor.");
+        System.out.println("Inside SpellChecker no-arg-constructor.");
     }
 
     public void checkSpelling(){

@@ -9,12 +9,21 @@ public class TextEditor {
     private SpellChecker spellChecker;
 
     // 有参构造器
-    public TextEditor(SpellChecker spellChecker) {
+    /*public TextEditor(SpellChecker spellChecker) {
         System.out.println("Inside TextEditor constructor.");
+        this.spellChecker = spellChecker;
+    }*/
+
+    public void setSpellChecker(SpellChecker spellChecker) {
+        System.out.println("Inside setSpellChecker");
         this.spellChecker = spellChecker;
     }
 
-    public void spellCheck(){
+    public SpellChecker getSpellChecker() {
+        return spellChecker;
+    }
+
+    public void spellCheck() {
         spellChecker.checkSpelling();
     }
 }
