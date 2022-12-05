@@ -8,7 +8,7 @@ package com.tutorialspoint;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-// 自动装配 byName byType
+// 自动装配 constructor
 public class MainApp {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
