@@ -9,9 +9,12 @@ import net.biancheng.c.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-@Controller // component
+import javax.annotation.Resource;
+
+@Controller // @Component
 public class UserController {
-    @Autowired
+//    @Autowired
+    @Resource(name = "yg")
     private UserService userService;
 
     public UserService getUserService() {
