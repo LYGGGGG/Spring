@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="dept" class="net.biancheng.c.Dept">
+        <property name="deptNo" value="2"></property>
+        <property name="deptName" value="运营部"></property>
+    </bean>
+
+    <bean id="employee" class="net.biancheng.c.Employee" autowire="constructor">
+        <property name="empNo" value="002"></property>
+        <property name="empName" value="易"></property>
+<!--        <property name="dept" ref="dept"></property>-->
+    </bean>
+</beans>
