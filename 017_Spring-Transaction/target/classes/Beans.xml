@@ -15,6 +15,8 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
+
+    <!--开启注解事务-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <!--开启组件扫描-->
     <context:component-scan base-package="net.biancheng.c"/>
@@ -37,25 +39,5 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-
-    <!--配置通知-->
-    <tx:advice id="tx-advice" transaction-manager="transactionManager">
-        <!--定义事务属性，<tx:attributes> 元素可以包含一个或多个 <tx:method> 元素-->
-        <tx:attributes>
-            <!--name 指定哪些方法上添加事务-->
-            <tx:method name="create*" propagation="REQUIRED" isolation="DEFAULT" read-only="false" timeout="10"/>
-        </tx:attributes>
-    </tx:advice>
-
-    <!-- <tx:advice> 元素只是定义了一个 AOP 通知，它并不是一个完整的事务性切面。-->
-    <!--在 <tx:advice> 元素中并没有定义哪些 Bean 应该被通知，因此我们需要一个切点来做这件事。-->
-    <!--利用 Spring AOP 技术将事务通知（tx-advice）和切点配置到切面中-->
-    <!--配置切点和切面-->
-    <aop:config>
-        <!--配置切点-->
-        <aop:pointcut id="tx-pt" expression="execution(* net.biancheng.c.service.impl.OrderServiceImpl.*(..))"/>
-        <!--配置切面-->
-        <aop:advisor advice-ref="tx-advice" pointcut-ref="tx-pt"></aop:advisor>
-    </aop:config>
 
 </beans>
