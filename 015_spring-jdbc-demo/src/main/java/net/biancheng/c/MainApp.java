@@ -14,15 +14,18 @@ public class MainApp {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
         UserService userService = context.getBean("userService", UserService.class);
         User user = new User();
-        user.setUserName("小张");
+        user.setUserName("Yg");
         user.setStatus("在线");
 
 //        int i = userService.addUser(user); // 新增用户
 //        int i = userService.updateUser(user, 6); // 更新用户
-        int i = userService.deleteUser(user);
+//        int i = userService.deleteUser(user); // 删除用户
+        int i = userService.countUser(user); // 统计用户
         if (i > 0) {
+            System.out.println(i);
             System.out.println("删除用户成功");
         } else {
+            System.out.println(i);
             System.out.println("失败");
         }
     }

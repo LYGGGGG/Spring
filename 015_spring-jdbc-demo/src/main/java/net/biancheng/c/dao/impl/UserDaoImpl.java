@@ -37,7 +37,9 @@ public class UserDaoImpl implements UserDao {
     }
 
     public int count(User user) {
-        return 0;
+        String sql = "SELECT COUNT(*) FROM `user` where user_name = ?";
+        Integer integer = jdbcTemplate.queryForObject(sql, Integer.class, user.getUserName());
+        return integer;
     }
 
     public List<User> getList(User user) {

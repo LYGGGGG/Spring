@@ -27,11 +27,11 @@ public class UserServiceImpl implements UserService {
     }
 
     public int deleteUser(User user) {
-        return 0;
+        return userDao.delete(user);
     }
 
     public int countUser(User user) {
-        return 0;
+        return userDao.count(user);
     }
 
     public List<User> getUserList(User user) {
